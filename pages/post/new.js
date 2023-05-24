@@ -4,7 +4,7 @@ import {AppLayout} from "../../components/AppLayout";
 export default function NewPost(props) {
     return (
         <div>
-
+            jeje
         </div>
     )
 }
