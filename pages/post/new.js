@@ -2,9 +2,19 @@ import {withPageAuthRequired} from "@auth0/nextjs-auth0";
 import {AppLayout} from "../../components/AppLayout";
 
 export default function NewPost(props) {
+    const handleClick = async () => {
+        const response = await fetch('/api/generatePost', {
+            method: "POST",
+        });
+        const json = await response;
+        console.log('result:', json)
+    }
+
     return (
         <div>
-            jeje
+            <button className={"btn"} onClick={handleClick}>
+                Generate
+            </button>
         </div>
     )
 }
