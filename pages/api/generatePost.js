@@ -7,8 +7,10 @@ export default async function handler(req, res){
 
     const openai = new OpenAIApi(config);
 
-    const topic = "Top recipes about fasting";
-    const keywords = "Ketogenic diet, common meals to prep, best fasting advices";
+    const {topic, keywords} = req.body;
+
+    // const topic = "Top recipes about fasting";
+    // const keywords = "Ketogenic diet, common meals to prep, best fasting advices";
 
     const response = await openai.createCompletion({
         model: "text-davinci-003",
@@ -26,5 +28,5 @@ export default async function handler(req, res){
         }
     );
     console.log("response:", response)
-    res.status(200).json({post: response.data.choices[0]?.text});
+    res.status(200).json({post: response.data.choices[0]?.text.split('\n').join('')});
 }
