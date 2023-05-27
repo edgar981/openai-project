@@ -3,12 +3,17 @@ import {AppLayout} from "../components/AppLayout";
 import NewPost from "./post/new";
 
 export default function TokenTopup() {
+    const handleClick = async () => {
+        await fetch(`/api/addTokens`, {
+            method: 'POST',
+        })
+    }
+
     return (
         <div>
-
+            <button className={"btn"} onClick={handleClick}>Add tokens</button>
         </div>
     )
-        ;
 }
 
 TokenTopup.getLayout = function getLayout(page, pageProps){
