@@ -102,11 +102,7 @@ export default withApiAuthRequired (async function handler(req, res){
 
         console.log("response:", postContentResponse.data.choices[0])
         res.status(200).json({
-            post: {
-                postContent,
-                title,
-                metaDescription,
-            }
+            postId: post.insertedId
         });
     }
 )
