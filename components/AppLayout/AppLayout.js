@@ -42,7 +42,7 @@ export const AppLayout = ({children}) => {
                     }
                 </div>
             </div>
-            <div>{children}</div>
+            {children}
         </div>
     )
 }
