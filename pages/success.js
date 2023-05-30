@@ -3,23 +3,21 @@ import {AppLayout} from "../components/AppLayout";
 import NewPost from "./post/new";
 import {getAppProps} from "../utils/getAppProps";
 
-export default function TokenTopup() {
+export default function Success() {
     const handleClick = async () => {
-        const result = await fetch(`/api/addTokens`, {
+        await fetch(`/api/addTokens`, {
             method: 'POST',
-        });
-        const json = await result.json();
-        window.location.href = json.session.url;
+        })
     }
 
     return (
         <div>
-            <button className={"btn"} onClick={handleClick}>Add tokens</button>
+            <div >Payment successfully</div>
         </div>
     )
 }
 
-TokenTopup.getLayout = function getLayout(page, pageProps){
+Success.getLayout = function getLayout(page, pageProps){
     return <AppLayout {...pageProps}>{page}</AppLayout>
 }
 
